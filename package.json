@@ -1,0 +1,8 @@
+{
+  "name": "demo-lostfound",
+  "private": true,
+  "description": "失物招领 Demo 静态网站",
+  "scripts": {
+    "start": "npx --yes serve -l 5500"
+  }
+}
