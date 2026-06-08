@@ -21,7 +21,7 @@ if (-not (Test-Path $CpolarExe)) {
 & $CpolarExe version | Write-Host
 
 Write-Host ""
-Write-Host "正在启动本地网站 http://localhost:$Port/html/home.html" -ForegroundColor Cyan
+Write-Host "正在启动本地网站 http://localhost:$Port/html/login.html" -ForegroundColor Cyan
 Start-Process powershell -ArgumentList @(
     "-NoExit",
     "-Command",
@@ -31,7 +31,7 @@ Start-Process powershell -ArgumentList @(
 Start-Sleep -Seconds 2
 
 Write-Host "正在启动 cpolar 公网隧道..." -ForegroundColor Cyan
-Write-Host "请将下方 Forwarding 地址发给他人访问（入口一般为 /html/home.html）" -ForegroundColor Yellow
+Write-Host "请将下方 Forwarding 地址发给他人访问（入口一般为 /html/login.html）" -ForegroundColor Yellow
 Write-Host ""
 
 Set-Location $ProjectRoot
