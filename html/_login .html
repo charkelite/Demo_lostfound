@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/compat.css">
+</head>
+<body class="login-page">
+    <div class="back" id="back">
+        <div class="log" id="log">
+            <div class="logtitle">LOGIN</div>
+            <form action="home.html" id="logbody" class="logbody" onsubmit="return login()">
+                <input type="text" id="zh" class="txt" placeholder="账户">
+                <input type="password" id="mm" class="txt" placeholder="密码">
+                <input type="submit" value="登录" id="sub" class="sub">
+                <a href="home.html" class="guest-link">游客登录</a>
+            </form>
+            <div class="log-footer">
+                <button type="button" class="log-link" id="adminLogin">管理员登陆</button>
+                <span class="register-text">还没有账号？<button type="button" class="log-link" id="registerLink">立即注册</button></span>
+            </div>
+        </div>
+    </div>
+    <div class="demo-modal" id="demoModal">
+        <div class="demo-modal-box">
+            <h2>提示</h2>
+            <p>当前为 Demo 演示版本，只能通过游客登录进入网站。</p>
+            <div class="demo-modal-actions">
+                <button type="button" class="demo-btn demo-btn-close" id="demoClose">知道了</button>
+                <a href="home.html" class="demo-btn demo-btn-guest">游客登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="con" id="con">
+        <div class="load">
+            <div class="dot" style="--i:0"></div>
+            <div class="dot" style="--i:1"></div>
+            <div class="dot" style="--i:2"></div>
+            <div class="dot" style="--i:3"></div>
+            <div class="dot" style="--i:4"></div>
+            <div class="dot" style="--i:5"></div>
+            <div class="dot" style="--i:6"></div>
+        </div>
+    </div>
+    <script src="../js/login.js"></script>
+</body>
+</html>

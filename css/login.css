@@ -1,0 +1,304 @@
+@charset "utf-8";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: rgb(44, 59, 59);
+    overflow: hidden;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    background-image: url("../images/login-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.back::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+}
+
+.back:hover::before {
+    backdrop-filter: none;
+}
+
+.log {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min(550px, 92vw);
+    padding: clamp(44px, 6vw, 58px) clamp(36px, 5vw, 50px) clamp(32px, 4.5vw, 40px);
+    background-color: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.logtitle {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(44px, 5vw, 50px);
+    font-weight: bolder;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(
+        90deg,
+        rgba(64, 160, 216, 0.9),
+        rgba(137, 100, 220, 0.9),
+        rgba(64, 160, 216, 0.9)
+    );
+    background-size: 200%;
+    animation: gradient 8s infinite linear;
+    color: transparent;
+    line-height: 1.2;
+    margin-bottom: clamp(36px, 4vw, 44px);
+}
+
+.logbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logbody .txt {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto clamp(20px, 2.5vw, 24px);
+    padding: clamp(14px, 1.8vw, 16px) clamp(16px, 2vw, 20px);
+    border: none;
+    border-bottom: 1px solid rgba(80, 90, 110, 0.35);
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    font-size: clamp(16px, 1.6vw, 18px);
+    color: rgb(44, 59, 59);
+    transition: 0.3s;
+}
+
+.logbody .txt::placeholder {
+    text-align: center;
+    color: rgba(80, 90, 110, 0.55);
+}
+
+.logbody .txt:hover {
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.logbody .txt:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(64, 160, 216, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(44, 59, 59);
+}
+
+.logbody .sub {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(50px, 5vw, 54px);
+    margin: clamp(8px, 1vw, 10px) auto 0;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(64, 160, 216, 0.85);
+    font-size: clamp(16px, 1.6vw, 18px);
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logbody .sub:hover {
+    background-color: rgba(86, 180, 236, 0.95);
+    box-shadow: 0 4px 16px rgba(64, 160, 216, 0.4);
+}
+
+.guest-link {
+    display: block;
+    width: 100%;
+    margin-top: clamp(18px, 2.2vw, 22px);
+    text-align: center;
+    text-decoration: none;
+    font-size: clamp(15px, 1.5vw, 17px);
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    color: rgba(80, 90, 110, 0.85);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.guest-link:hover {
+    color: rgb(64, 160, 216);
+}
+
+.log-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: clamp(20px, 2.5vw, 26px);
+    padding-top: clamp(14px, 1.8vw, 18px);
+    border-top: 1px dashed rgba(80, 90, 110, 0.18);
+    font-size: clamp(13px, 1.3vw, 15px);
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+}
+
+.log-link {
+    color: rgb(64, 160, 216);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.log-link:hover {
+    color: rgb(45, 130, 190);
+}
+
+.register-text {
+    color: rgba(80, 90, 110, 0.85);
+    text-align: right;
+}
+
+.register-text .log-link {
+    margin-left: 2px;
+}
+
+@media (max-width: 480px) {
+    .log-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .register-text {
+        text-align: left;
+    }
+}
+
+.demo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 35, 50, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.demo-modal.show {
+    display: flex;
+}
+
+.demo-modal-box {
+    width: min(400px, 88vw);
+    padding: clamp(28px, 4vw, 36px);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    animation: modalIn 0.3s ease;
+}
+
+.demo-modal-box h2 {
+    margin: 0 0 16px;
+    font-size: 20px;
+    color: rgb(51, 86, 114);
+}
+
+.demo-modal-box p {
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgb(44, 59, 59);
+}
+
+.demo-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.demo-btn {
+    min-width: 110px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.demo-btn-close {
+    background: rgba(120, 140, 160, 0.15);
+    color: rgb(60, 85, 110);
+}
+
+.demo-btn-close:hover {
+    background: rgba(120, 140, 160, 0.28);
+}
+
+.demo-btn-guest {
+    background: rgba(64, 160, 216, 0.88);
+    color: #fff;
+}
+
+.demo-btn-guest:hover {
+    background: rgba(86, 180, 236, 0.95);
+    box-shadow: 0 4px 16px rgba(64, 160, 216, 0.35);
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes gradient {
+    100% {
+        background-position: -200% 0%;
+    }
+}

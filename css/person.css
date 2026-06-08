@@ -1,0 +1,178 @@
+@charset "utf-8";
+
+.mid {
+    width: 100%;
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 48px) var(--page-padding);
+}
+
+.joinpart {
+    width: 100%;
+    max-width: var(--inner-max);
+    min-height: clamp(460px, 68vh, 640px);
+    display: flex;
+    flex-direction: row;
+    gap: clamp(20px, 4vw, 48px);
+    background-image: url("../images/person-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--app-radius);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+    animation: loadbac 0.8s ease;
+}
+
+.joinpart .left {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.joinpart .left .avatar-wrap {
+    position: relative;
+    width: clamp(110px, 12vw, 180px);
+    height: clamp(110px, 12vw, 180px);
+}
+
+.joinpart .left .square {
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(183, 207, 226);
+    border-radius: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: a1 3s infinite linear;
+}
+
+.left .square::before,
+.left .square::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(183, 207, 226);
+    position: absolute;
+    top: -4px;
+    left: -4px;
+}
+
+.left .square::before {
+    transform: rotate(30deg);
+    border-radius: 40%;
+    animation: a2 25s infinite linear;
+}
+
+.left .square::after {
+    transform: rotate(60deg);
+    border-radius: 30%;
+    animation: a2 60s infinite linear;
+}
+
+.joinpart .left .avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72%;
+    height: 72%;
+    border: 3px solid rgb(183, 207, 226);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    background: #fff;
+}
+
+.left .avatar .tx {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/avatar.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.left .tit {
+    margin-top: 20px;
+    text-align: center;
+    font-size: clamp(1.3em, 2.2vw, 1.8em);
+    color: #000;
+}
+
+.joinpart .right {
+    width: 62%;
+    display: flex;
+    align-items: center;
+    padding: clamp(24px, 4vw, 48px) clamp(24px, 4vw, 48px) clamp(24px, 4vw, 48px) clamp(8px, 2vw, 16px);
+}
+
+.joinpart .goal {
+    width: 100%;
+    color: #000;
+    text-align: left;
+}
+
+.joinpart .goal h1 {
+    font-size: clamp(1.8em, 3.5vw, 3em);
+    margin: 0 0 14px;
+    line-height: 1.25;
+}
+
+.joinpart .goal p {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.65;
+    margin: 6px 0;
+}
+
+.meth {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: clamp(14px, 2vw, 24px);
+    margin-top: clamp(20px, 3vw, 36px);
+}
+
+.meth .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s;
+}
+
+.meth .icon:hover { transform: scale(1.1); }
+.meth .qq { background-image: url("../images/person-qq.png"); background-size: 28px; }
+.meth .vx { background-image: url("../images/person-wechat.png"); background-size: cover; }
+.meth .gh { background-image: url("../images/person-github.png"); background-size: 36px; }
+
+@media (max-width: 768px) {
+    .joinpart { flex-direction: column; min-height: auto; }
+    .joinpart .left, .joinpart .right { width: 100%; }
+    .joinpart .right { padding: 0 20px 28px; }
+}
+
+@keyframes a1 { to { transform: rotate(360deg); } }
+@keyframes a2 { to { transform: rotate(-10800deg); } }
+@keyframes loadbac {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+nav .navtitle strong,
+nav a {
+    color: #000;
+}
+
+nav a:hover,
+nav a.active {
+    color: #000;
+}
+
+.foot p {
+    color: #000;
+}

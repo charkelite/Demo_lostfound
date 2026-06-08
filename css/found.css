@@ -1,0 +1,192 @@
+@charset "utf-8";
+
+.mid {
+    width: 100%;
+    min-height: calc(100vh - var(--nav-height));
+    max-width: var(--inner-max);
+    margin: 0 auto;
+    padding: 0 var(--page-padding) 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.headimg {
+    width: 100%;
+    height: clamp(140px, 18vh, 220px);
+    background-image: url("../images/page-header.jpg");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+    border-bottom: 4px solid rgb(58, 83, 85);
+    margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.headimg h1 {
+    margin: 0;
+    line-height: 1;
+    color: #fff;
+    font-size: clamp(1.6em, 3.5vw, 2.6em);
+    text-align: center;
+}
+
+.found-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(20px, 3vw, 40px);
+}
+
+.found-list {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2vw, 24px);
+}
+
+.found-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: clamp(160px, 18vh, 210px);
+    background: var(--glass-bg);
+    border-radius: var(--app-radius);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 28px rgba(103, 122, 138, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+}
+
+.fi2 { animation-delay: 0.1s; }
+
+.fi1 .img { background-image: url("../images/found-thermos.jpg"); }
+.fi2 .img { background-image: url("../images/found-earbuds.jpg"); }
+
+.found-item .imghid {
+    flex: 0 0 clamp(180px, 26%, 260px);
+    overflow: hidden;
+}
+
+.found-item .img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.found-item:hover .img { transform: scale(1.04); }
+
+.found-item .txt {
+    flex: 1;
+    padding: clamp(16px, 2vw, 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+}
+
+.found-item .txt h2 {
+    color: rgb(53, 75, 104);
+    font-size: clamp(1em, 1.6vw, 1.3em);
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255, 165, 0, 0.15);
+    color: rgb(200, 120, 0);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.found-item .txt p {
+    color: rgb(25, 39, 49);
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.55;
+    margin: 0 0 12px;
+}
+
+.item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(80, 100, 120, 0.2);
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(12px, 1vw, 13px);
+    color: rgb(60, 85, 110);
+}
+
+.meta-label {
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(64, 160, 216, 0.12);
+    color: rgb(45, 110, 170);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.found-side {
+    width: clamp(240px, 22vw, 300px);
+    flex-shrink: 0;
+    animation: fadeUp 0.7s ease 0.25s both;
+}
+
+.found-side .tip-box {
+    background: var(--glass-bg);
+    border-radius: var(--app-radius);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 24px rgba(39, 69, 88, 0.12);
+    padding: clamp(20px, 3vw, 28px) 20px;
+    text-align: center;
+}
+
+.tip-box h2 {
+    color: rgb(56, 117, 158);
+    margin: 0 0 12px;
+    font-size: 1.1em;
+}
+
+.tip-box p {
+    color: rgb(80, 120, 130);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .found-body { flex-direction: column; align-items: stretch; }
+    .found-side { width: 100%; max-width: 480px; margin: 0 auto; }
+}
+
+@media (max-width: 560px) {
+    .found-item { flex-direction: column; min-height: auto; }
+    .found-item .imghid { flex: none; height: 150px; width: 100%; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}

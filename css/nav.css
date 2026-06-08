@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: var(--nav-height, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(4px, 1.2vw, 16px);
+    padding: 8px var(--page-padding, 24px);
+    background-color: rgba(123, 161, 197, 0.96);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}
+
+.homenav {
+    animation: load2 0.8s linear;
+}
+
+nav .nav-side-spacer {
+    width: 38px;
+    flex-shrink: 0;
+}
+
+nav .navtitle {
+    flex-shrink: 0;
+    margin-right: clamp(8px, 2vw, 24px);
+}
+
+nav .navtitle strong {
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: bolder;
+    letter-spacing: 3px;
+    color: rgb(234, 247, 255);
+}
+
+nav a {
+    flex: 0 1 auto;
+    text-decoration: none;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 clamp(10px, 1.5vw, 22px);
+    font-weight: bold;
+    font-size: clamp(12px, 1.1vw, 15px);
+    color: rgb(84, 109, 158);
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+    white-space: nowrap;
+    text-align: center;
+}
+
+nav a:hover,
+nav a.active {
+    background: rgb(155, 200, 240);
+    color: rgb(52, 78, 120);
+}
+
+nav a.nav-logout {
+    position: absolute;
+    right: var(--page-padding, 24px);
+    top: 50%;
+    transform: translateY(-50%);
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e53935;
+    background: transparent;
+    z-index: 1;
+}
+
+nav a.nav-logout svg {
+    width: 22px;
+    height: 22px;
+}
+
+nav a.nav-logout:hover {
+    background: rgba(229, 57, 53, 0.15);
+    color: #c62828;
+}
+
+@media (max-width: 680px) {
+    nav {
+        justify-content: center;
+        padding: 8px 10px;
+    }
+
+    nav .nav-side-spacer {
+        display: none;
+    }
+
+    nav .navtitle {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 2px;
+    }
+
+    nav a {
+        flex: 1 1 auto;
+        min-width: 56px;
+        padding: 0 4px;
+        font-size: 11px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+    nav a.nav-logout {
+        top: 12px;
+        transform: none;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+    }
+
+    nav a.nav-logout svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@keyframes load2 {
+    0% {
+        top: -70px;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}

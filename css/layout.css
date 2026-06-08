@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+:root {
+    --inner-max: 94vw;
+    --inner-max: min(1400px, 94vw);
+    --app-radius: 16px;
+    --nav-height: 64px;
+    --page-padding: clamp(16px, 3vw, 48px);
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --primary: rgba(64, 160, 216, 0.85);
+    --text: rgb(44, 59, 59);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.page-main,
+.main,
+.mid {
+    flex: 1;
+    width: 100%;
+    max-width: 100vw;
+    padding-top: var(--nav-height);
+    box-sizing: border-box;
+}
+
+.page-inner {
+    width: 100%;
+    max-width: var(--inner-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+body.login-page {
+    display: block;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body.login-page .back {
+    min-height: 100vh;
+    width: 100vw;
+}

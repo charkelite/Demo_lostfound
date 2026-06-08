@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>失物招领 - 失物信息</title>
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/lost.css">
+    <link rel="stylesheet" href="../css/compat.css">
+</head>
+<body>
+    <nav>
+        <span class="nav-side-spacer" aria-hidden="true"></span>
+        <div class="navtitle"><strong>失物招领</strong></div>
+        <a href="home.html">首页</a>
+        <a href="search.html">搜索</a>
+        <a href="lost.html" class="active">失物信息</a>
+        <a href="found.html">认领信息</a>
+        <a href="person.html">个人中心</a>
+        <a href="_login .html" class="nav-logout" title="退出登录" aria-label="退出登录">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+        </a>
+    </nav>
+    <div class="mid">
+        <div class="headimg">
+            <h1>失物信息</h1>
+        </div>
+        <div class="lost-body">
+        <div class="content" id="lostList">
+            <div class="con c1">
+                <div class="imghid"><div class="img"></div></div>
+                <div class="txt">
+                    <h2>黑色钱包 <span class="status-badge">丢失中</span></h2>
+                    <p>&emsp;&emsp;6月5日中午在图书馆三楼阅览室靠窗座位自习时不慎遗失黑色皮质折叠钱包，右侧边角有轻微磨损，内有身份证、两张银行卡及少量现金。如有拾到者请联系失主，核实身份后当面领取，必有酬谢。</p>
+                    <div class="item-meta">
+                        <span class="meta-item"><span class="meta-label">失主电话</span>138****6721</span>
+                        <span class="meta-item"><span class="meta-label">丢失时间</span>2026-06-05 12:40</span>
+                        <span class="meta-item"><span class="meta-label">丢失地点</span>图书馆三楼阅览室</span>
+                    </div>
+                </div>
+            </div>
+            <div class="con c2">
+                <div class="imghid"><div class="img"></div></div>
+                <div class="txt">
+                    <h2>蓝色雨伞 <span class="status-badge">丢失中</span></h2>
+                    <p>&emsp;&emsp;6月3日上午下课后，于教学楼 A 栋一楼大厅至南门途中遗失藏青色长柄伞一把，伞面印有白色云朵图案，伞柄贴有「经管2023」字样贴纸。烦请拾到者与失主联系归还。</p>
+                    <div class="item-meta">
+                        <span class="meta-item"><span class="meta-label">失主电话</span>159****3846</span>
+                        <span class="meta-item"><span class="meta-label">丢失时间</span>2026-06-03 09:15</span>
+                        <span class="meta-item"><span class="meta-label">丢失地点</span>教学楼 A 栋大厅</span>
+                    </div>
+                </div>
+            </div>
+            <div class="con c3">
+                <div class="imghid"><div class="img"></div></div>
+                <div class="txt">
+                    <h2>校园卡 <span class="status-badge">丢失中</span></h2>
+                    <p>&emsp;&emsp;5月28日晚在第二食堂二楼窗口用餐后遗失校园一卡通，卡号以 2022 开头，背面贴有联系方式便利贴。卡片已挂失，拾到者请交至失物招领处或电话联系失主，凭学生证核实后领取，必有感谢。</p>
+                    <div class="item-meta">
+                        <span class="meta-item"><span class="meta-label">失主电话</span>186****2093</span>
+                        <span class="meta-item"><span class="meta-label">丢失时间</span>2026-05-28 18:42</span>
+                        <span class="meta-item"><span class="meta-label">丢失地点</span>第二食堂二楼</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pri">
+            <div class="prihead">
+                <a href="person.html"><div class="tx"></div></a>
+                <h2>Charlie</h2>
+                <p>帮助物品回到主人身边</p>
+            </div>
+            <div class="tag">
+                <h2>热门分类</h2>
+                <p>证件 &emsp; 电子设备 &emsp; 书籍 &emsp; 衣物 &emsp; 其他</p>
+            </div>
+            <div class="upload-box">
+                <h2>上传失物</h2>
+                <p>发布丢失物品信息，帮助更快找回</p>
+                <button type="button" class="upload-btn" id="openUploadBtn">+ 上传失物</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="upload-modal" id="uploadModal">
+        <div class="upload-modal-box">
+            <h2>上传失物信息</h2>
+            <form id="uploadForm" class="upload-form">
+                <label class="upload-field">
+                    <span class="field-label">物品图片</span>
+                    <input type="file" id="itemImage" accept="image/*" required>
+                    <div class="image-preview" id="imagePreview">点击选择图片</div>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">物品名称</span>
+                    <input type="text" id="itemName" placeholder="请输入物品名称" required>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">物品状态</span>
+                    <select id="itemStatus" required>
+                        <option value="丢失中">丢失中</option>
+                        <option value="已找回">已找回</option>
+                    </select>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">物品描述</span>
+                    <textarea id="itemDesc" rows="3" placeholder="请描述物品特征、内含物品等" required></textarea>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">丢失地点</span>
+                    <input type="text" id="itemPlace" placeholder="请输入丢失地点" required>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">失主电话</span>
+                    <input type="text" id="itemPhone" placeholder="请输入失主联系电话" required>
+                </label>
+                <div class="upload-form-actions">
+                    <button type="button" class="form-btn form-btn-cancel" id="uploadCancel">取消</button>
+                    <button type="submit" class="form-btn form-btn-confirm">确认发布</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="foot">
+        <p>失物招领平台</p>
+        <p>让遗失与重逢更简单</p>
+    </footer>
+    <script src="../js/lost.js"></script>
+</body>
+</html>

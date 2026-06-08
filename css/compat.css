@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/* Firefox 滚动条 */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(91, 105, 136, 0.8) rgb(194, 213, 241);
+}
+
+/* 触控设备上 fixed 背景在 Firefox 中可能异常 */
+@media (hover: none) and (pointer: coarse) {
+    body,
+    .back {
+        background-attachment: scroll;
+    }
+}
+
+/* inset 回退（旧版 Edge） */
+.upload-modal,
+.demo-modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* 不支持 backdrop-filter 时使用不透明背景 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.94);
+    }
+
+    nav {
+        background-color: rgba(123, 161, 197, 0.98);
+    }
+
+    .con,
+    .found-item,
+    .search-section,
+    .slide-detail,
+    .pt,
+    .ab,
+    .log,
+    .pri {
+        background: rgba(255, 255, 255, 0.94);
+    }
+
+    .back::before {
+        background: rgba(180, 200, 220, 0.45);
+    }
+
+    .upload-modal,
+    .demo-modal {
+        background: rgba(20, 35, 50, 0.72);
+    }
+
+    #con.con {
+        background: rgba(200, 220, 235, 0.85);
+    }
+}
+
+/* 表单控件在 Firefox 中统一外观 */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+select,
+textarea {
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23546d9e' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+}
+
+/* 图片缩放动画硬件加速 */
+.con .img,
+.found-item .img,
+.pt .img,
+.ab .img,
+.search-result .img-wrap img {
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
