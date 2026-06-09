@@ -63,13 +63,13 @@ window.onload = function () {
     var banner = document.getElementById('banner');
     var slideDetail = document.getElementById('slideDetail');
     var bannerWidth = banner.offsetWidth || Math.min(window.innerWidth * 0.92, 1150);
-    var imgWidth = Math.round(bannerWidth * 0.65);
+    var imgWidth = Math.round(bannerWidth * 0.55);
     var imgHeight = Math.round(imgWidth * 421 / 750);
     var leftSmall = 0;
-    var leftCenter = Math.round(bannerWidth * 0.17);
-    var leftRight = Math.round(bannerWidth * 0.35);
+    var leftCenter = Math.round(bannerWidth * 0.2);
+    var leftRight = Math.round(bannerWidth * 0.38);
 
-    banner.style.height = imgHeight + 60 + 'px';
+    banner.style.height = imgHeight + 50 + 'px';
 
     for (var i = 1; i <= 5; i++) {
         var itemId = i > 3 ? i - 3 : i + 2;
@@ -136,7 +136,7 @@ window.onload = function () {
         pics[len - 4].style.opacity = 0;
         pics[len - 1].style.zIndex = 100;
         pics[len - 1].style.left = leftCenter + 'px';
-        pics[len - 1].style.transform = 'scale(1.2)';
+        pics[len - 1].style.transform = 'scale(1.1)';
         pics[len - 1].style.opacity = 1;
         pics[len].style.left = leftRight + 'px';
         pics[len].style.opacity = 0.5;

@@ -29,15 +29,15 @@
         </a>
     </nav>
     <div class="mid">
-        <div class="headimg">
+        <div class="headimg" style="padding-top: 60px;">
             <h1>等待认领</h1>
         </div>
         <div class="found-body">
-            <div class="found-list">
-                <div class="found-item fi1">
+            <div class="found-list" id="foundList">
+                <div class="found-item fi1" data-item-id="fi1">
                     <div class="imghid"><div class="img"></div></div>
                     <div class="txt">
-                        <h2>红色保温杯 <span class="status-badge">待认领</span></h2>
+                        <h2>红色保温杯 <button type="button" class="status-badge status-toggle" data-pending="待认领" data-done="已认领" data-done-class="claimed">待认领</button></h2>
                         <p>&emsp;&emsp;体育馆更衣室拾取，杯身印有校徽图案，杯盖内侧刻有姓名缩写「L·Z」，请失主说明杯内物品特征后联系领取。</p>
                         <div class="item-meta">
                             <span class="meta-item"><span class="meta-label">联系人电话</span>139****7765</span>
@@ -46,10 +46,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="found-item fi2">
+                <div class="found-item fi2" data-item-id="fi2">
                     <div class="imghid"><div class="img"></div></div>
                     <div class="txt">
-                        <h2>无线蓝牙耳机 <span class="status-badge">待认领</span></h2>
+                        <h2>无线蓝牙耳机 <button type="button" class="status-badge status-toggle" data-pending="待认领" data-done="已认领" data-done-class="claimed">待认领</button></h2>
                         <p>&emsp;&emsp;操场看台座椅下方拾取，白色充电盒略有磨损，内含左右两只耳机，请失主描述配对设备名称后认领。</p>
                         <div class="item-meta">
                             <span class="meta-item"><span class="meta-label">联系人电话</span>152****3184</span>
@@ -66,12 +66,57 @@
                     <p>&emsp;&emsp;认领时请携带有效证件，经核实无误后方可领取物品。</p>
                     <p>&emsp;&emsp;如有疑问，可前往个人中心联系平台管理员。</p>
                 </div>
+                <div class="upload-box">
+                    <h2>发布认领</h2>
+                    <p>发布拾取物品信息，帮助失主尽快找回</p>
+                    <button type="button" class="upload-btn" id="openUploadBtn">+ 发布认领</button>
+                </div>
             </aside>
+        </div>
+    </div>
+    <div class="upload-modal" id="uploadModal">
+        <div class="upload-modal-box">
+            <h2>发布认领信息</h2>
+            <form id="uploadForm" class="upload-form">
+                <label class="upload-field">
+                    <span class="field-label">物品图片</span>
+                    <input type="file" id="itemImage" accept="image/*" required>
+                    <div class="image-preview" id="imagePreview">点击选择图片</div>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">物品名称</span>
+                    <input type="text" id="itemName" placeholder="请输入物品名称" required>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">认领状态</span>
+                    <select id="itemStatus" required>
+                        <option value="待认领">待认领</option>
+                        <option value="已认领">已认领</option>
+                    </select>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">物品描述</span>
+                    <textarea id="itemDesc" rows="3" placeholder="请描述物品特征、拾取情况等" required></textarea>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">拾取地点</span>
+                    <input type="text" id="itemPlace" placeholder="请输入拾取地点" required>
+                </label>
+                <label class="upload-field">
+                    <span class="field-label">联系人电话</span>
+                    <input type="text" id="itemPhone" placeholder="请输入联系人电话" required>
+                </label>
+                <div class="upload-form-actions">
+                    <button type="button" class="form-btn form-btn-cancel" id="uploadCancel">取消</button>
+                    <button type="submit" class="form-btn form-btn-confirm">确认发布</button>
+                </div>
+            </form>
         </div>
     </div>
     <footer class="foot">
         <p>失物招领平台</p>
         <p>让遗失与重逢更简单</p>
     </footer>
+    <script src="../js/found.js"></script>
 </body>
 </html>

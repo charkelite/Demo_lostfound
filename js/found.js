@@ -1,7 +1,7 @@
 (function () {
-    var STORAGE_KEY = 'userLostItems';
-    var STATIC_STATUS_KEY = 'lostStaticStatus';
-    var lostList = document.getElementById('lostList');
+    var STORAGE_KEY = 'userFoundItems';
+    var STATIC_STATUS_KEY = 'foundStaticStatus';
+    var foundList = document.getElementById('foundList');
     var uploadModal = document.getElementById('uploadModal');
     var uploadForm = document.getElementById('uploadForm');
     var itemImage = document.getElementById('itemImage');
@@ -94,7 +94,7 @@
 
     function initStaticStatusBadges() {
         var map = getStaticStatus();
-        Array.prototype.forEach.call(lostList.querySelectorAll('.con:not(.con-user)'), function (card) {
+        Array.prototype.forEach.call(foundList.querySelectorAll('.found-item:not(.found-item-user)'), function (card) {
             var itemId = card.dataset.itemId;
             var badge = card.querySelector('.status-toggle');
             if (!itemId || !badge) {
@@ -111,21 +111,21 @@
 
     function createItemElement(item) {
         var card = document.createElement('div');
-        card.className = 'con con-user';
+        card.className = 'found-item found-item-user';
         card.dataset.id = item.id;
         card.innerHTML =
             '<button type="button" class="item-del" aria-label="删除">&times;</button>' +
             '<div class="imghid"><div class="img" style="background-image:url(' + item.image + ')"></div></div>' +
             '<div class="txt">' +
             '<h2>' + escapeHtml(item.name) +
-            ' <button type="button" class="' + statusBadgeClass(item.status, '已找回', 'found-back') +
-            '" data-pending="丢失中" data-done="已找回" data-done-class="found-back">' +
+            ' <button type="button" class="' + statusBadgeClass(item.status, '已认领', 'claimed') +
+            '" data-pending="待认领" data-done="已认领" data-done-class="claimed">' +
             escapeHtml(item.status) + '</button></h2>' +
             '<p>&emsp;&emsp;' + escapeHtml(item.desc) + '</p>' +
             '<div class="item-meta">' +
-            '<span class="meta-item"><span class="meta-label">失主电话</span>' + escapeHtml(item.phone || '') + '</span>' +
-            '<span class="meta-item"><span class="meta-label">丢失时间</span>' + escapeHtml(item.time) + '</span>' +
-            '<span class="meta-item"><span class="meta-label">丢失地点</span>' + escapeHtml(item.place || '') + '</span>' +
+            '<span class="meta-item"><span class="meta-label">联系人电话</span>' + escapeHtml(item.phone || '') + '</span>' +
+            '<span class="meta-item"><span class="meta-label">发布时间</span>' + escapeHtml(item.time) + '</span>' +
+            '<span class="meta-item"><span class="meta-label">拾取地点</span>' + escapeHtml(item.place || '') + '</span>' +
             '</div></div>';
 
         card.querySelector('.item-del').onclick = function () {
@@ -141,12 +141,12 @@
 
     function renderUserItems() {
         var items = getItems();
-        Array.prototype.forEach.call(lostList.querySelectorAll('.con-user'), function (el) {
+        Array.prototype.forEach.call(foundList.querySelectorAll('.found-item-user'), function (el) {
             el.remove();
         });
 
         for (var i = items.length - 1; i >= 0; i--) {
-            lostList.insertBefore(createItemElement(items[i]), lostList.firstChild);
+            foundList.insertBefore(createItemElement(items[i]), foundList.firstChild);
         }
     }
 
@@ -202,7 +202,7 @@
         }
 
         var item = {
-            id: 'lost-' + Date.now(),
+            id: 'found-' + Date.now(),
             name: document.getElementById('itemName').value.trim(),
             status: document.getElementById('itemStatus').value,
             desc: document.getElementById('itemDesc').value.trim(),

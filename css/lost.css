@@ -146,17 +146,32 @@
 
 .status-badge {
     display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
+    padding: 2px 7px;
+    border-radius: 8px;
     background: rgba(255, 165, 0, 0.15);
     color: rgb(200, 120, 0);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 .status-badge.found-back {
     background: rgba(46, 204, 113, 0.15);
     color: rgb(30, 140, 80);
+}
+
+.status-badge.status-toggle {
+    cursor: pointer;
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.status-badge.status-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .con .txt p {
@@ -366,6 +381,12 @@
 .upload-field textarea:focus {
     border-color: rgba(64, 160, 216, 0.6);
     box-shadow: 0 0 0 3px rgba(64, 160, 216, 0.12);
+}
+
+.upload-field textarea {
+    min-width: 100%;
+    max-width: 100%;
+    resize: vertical;
 }
 
 .upload-field input[type="file"] {

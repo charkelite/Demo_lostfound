@@ -29,15 +29,15 @@
         </a>
     </nav>
     <div class="mid">
-        <div class="headimg">
+        <div class="headimg" style="padding-top: 60px;">
             <h1>失物信息</h1>
         </div>
         <div class="lost-body">
         <div class="content" id="lostList">
-            <div class="con c1">
+            <div class="con c1" data-item-id="c1">
                 <div class="imghid"><div class="img"></div></div>
                 <div class="txt">
-                    <h2>黑色钱包 <span class="status-badge">丢失中</span></h2>
+                    <h2>黑色钱包 <button type="button" class="status-badge status-toggle" data-pending="丢失中" data-done="已找回" data-done-class="found-back">丢失中</button></h2>
                     <p>&emsp;&emsp;6月5日中午在图书馆三楼阅览室靠窗座位自习时不慎遗失黑色皮质折叠钱包，右侧边角有轻微磨损，内有身份证、两张银行卡及少量现金。如有拾到者请联系失主，核实身份后当面领取，必有酬谢。</p>
                     <div class="item-meta">
                         <span class="meta-item"><span class="meta-label">失主电话</span>138****6721</span>
@@ -46,10 +46,10 @@
                     </div>
                 </div>
             </div>
-            <div class="con c2">
+            <div class="con c2" data-item-id="c2">
                 <div class="imghid"><div class="img"></div></div>
                 <div class="txt">
-                    <h2>蓝色雨伞 <span class="status-badge">丢失中</span></h2>
+                    <h2>蓝色雨伞 <button type="button" class="status-badge status-toggle" data-pending="丢失中" data-done="已找回" data-done-class="found-back">丢失中</button></h2>
                     <p>&emsp;&emsp;6月3日上午下课后，于教学楼 A 栋一楼大厅至南门途中遗失藏青色长柄伞一把，伞面印有白色云朵图案，伞柄贴有「经管2023」字样贴纸。烦请拾到者与失主联系归还。</p>
                     <div class="item-meta">
                         <span class="meta-item"><span class="meta-label">失主电话</span>159****3846</span>
@@ -58,10 +58,10 @@
                     </div>
                 </div>
             </div>
-            <div class="con c3">
+            <div class="con c3" data-item-id="c3">
                 <div class="imghid"><div class="img"></div></div>
                 <div class="txt">
-                    <h2>校园卡 <span class="status-badge">丢失中</span></h2>
+                    <h2>校园卡 <button type="button" class="status-badge status-toggle" data-pending="丢失中" data-done="已找回" data-done-class="found-back">丢失中</button></h2>
                     <p>&emsp;&emsp;5月28日晚在第二食堂二楼窗口用餐后遗失校园一卡通，卡号以 2022 开头，背面贴有联系方式便利贴。卡片已挂失，拾到者请交至失物招领处或电话联系失主，凭学生证核实后领取，必有感谢。</p>
                     <div class="item-meta">
                         <span class="meta-item"><span class="meta-label">失主电话</span>186****2093</span>
@@ -82,16 +82,16 @@
                 <p>证件 &emsp; 电子设备 &emsp; 书籍 &emsp; 衣物 &emsp; 其他</p>
             </div>
             <div class="upload-box">
-                <h2>上传失物</h2>
+                <h2>发布失物</h2>
                 <p>发布丢失物品信息，帮助更快找回</p>
-                <button type="button" class="upload-btn" id="openUploadBtn">+ 上传失物</button>
+                <button type="button" class="upload-btn" id="openUploadBtn">+ 发布失物</button>
             </div>
         </div>
         </div>
     </div>
     <div class="upload-modal" id="uploadModal">
         <div class="upload-modal-box">
-            <h2>上传失物信息</h2>
+            <h2>发布失物信息</h2>
             <form id="uploadForm" class="upload-form">
                 <label class="upload-field">
                     <span class="field-label">物品图片</span>

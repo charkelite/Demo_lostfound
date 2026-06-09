@@ -61,6 +61,42 @@
     -webkit-backdrop-filter: blur(12px);
     overflow: hidden;
     animation: fadeUp 0.6s ease both;
+    position: relative;
+}
+
+.found-item-user .txt {
+    padding-right: clamp(48px, 5vw, 56px);
+}
+
+.found-item-user .img {
+    background-size: cover;
+    background-position: center;
+}
+
+.item-del {
+    position: absolute;
+    right: clamp(12px, 1.5vw, 16px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgb(231, 76, 60);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 20px;
+    line-height: 34px;
+    text-align: center;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.35);
+    transition: background 0.25s, transform 0.25s;
+}
+
+.item-del:hover {
+    background: rgb(192, 57, 43);
+    transform: translateY(-50%) scale(1.08);
 }
 
 .fi2 { animation-delay: 0.1s; }
@@ -105,12 +141,32 @@
 
 .status-badge {
     display: inline-block;
-    padding: 2px 10px;
-    border-radius: 12px;
+    padding: 2px 7px;
+    border-radius: 8px;
     background: rgba(255, 165, 0, 0.15);
     color: rgb(200, 120, 0);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
+    line-height: 1.4;
+}
+
+.status-badge.claimed {
+    background: rgba(46, 204, 113, 0.15);
+    color: rgb(30, 140, 80);
+}
+
+.status-badge.status-toggle {
+    cursor: pointer;
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.status-badge.status-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .found-item .txt p {
@@ -174,6 +230,188 @@
     line-height: 1.7;
     margin: 0;
     text-align: left;
+}
+
+.upload-box {
+    margin-top: 16px;
+    padding: clamp(18px, 2.5vw, 24px) 16px;
+    background: var(--glass-bg);
+    border-radius: var(--app-radius);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 24px rgba(39, 69, 88, 0.12);
+    text-align: center;
+}
+
+.upload-box h2 {
+    color: rgb(56, 117, 158);
+    margin: 0 0 8px;
+    font-size: 1.1em;
+}
+
+.upload-box p {
+    margin: 0 0 14px;
+    color: rgb(109, 166, 168);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.upload-btn {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(64, 160, 216, 0.88);
+    color: #fff;
+    font-size: 14px;
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.upload-btn:hover {
+    background: rgb(45, 130, 190);
+    transform: translateY(-1px);
+}
+
+.upload-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 35, 50, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.upload-modal.show {
+    display: flex;
+}
+
+.upload-modal-box {
+    width: min(480px, 94vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: clamp(24px, 3vw, 32px);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--app-radius);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    animation: fadeUp 0.3s ease;
+}
+
+.upload-modal-box > h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    color: rgb(51, 86, 114);
+    font-size: 1.25em;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.upload-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(60, 85, 110);
+}
+
+.upload-field input[type="text"],
+.upload-field select,
+.upload-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid rgba(80, 120, 160, 0.25);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    color: rgb(25, 39, 49);
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+}
+
+.upload-field input[type="text"]:focus,
+.upload-field select:focus,
+.upload-field textarea:focus {
+    border-color: rgba(64, 160, 216, 0.6);
+    box-shadow: 0 0 0 3px rgba(64, 160, 216, 0.12);
+}
+
+.upload-field textarea {
+    min-width: 100%;
+    max-width: 100%;
+    resize: vertical;
+}
+
+.upload-field input[type="file"] {
+    font-size: 13px;
+}
+
+.image-preview {
+    width: 100%;
+    height: 140px;
+    border: 2px dashed rgba(80, 120, 160, 0.3);
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(120, 140, 160);
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.upload-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.form-btn {
+    flex: 1;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: "幼圆", "Microsoft YaHei", sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-btn-cancel {
+    background: rgba(120, 140, 160, 0.15);
+    color: rgb(60, 85, 110);
+}
+
+.form-btn-cancel:hover {
+    background: rgba(120, 140, 160, 0.28);
+}
+
+.form-btn-confirm {
+    background: rgba(64, 160, 216, 0.88);
+    color: #fff;
+}
+
+.form-btn-confirm:hover {
+    background: rgb(45, 130, 190);
 }
 
 @media (max-width: 900px) {
